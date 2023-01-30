@@ -17,6 +17,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	// end::actuator[]
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// For html templates
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	// tag::tests[]
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
 	// end::tests[]
