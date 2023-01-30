@@ -2,9 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>My first Thymeleaf tempate!</title>
+<title>My first Thymeleaf template!</title>
 </head>
 <body>
     <h2>Hello!!!'</h2>
+    <div th:text="${#dates.format(#dates.createNow(),'YYYY/MM/dd HH:mm:ss')}"></div>
 </body>
 </html>
