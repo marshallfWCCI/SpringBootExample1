@@ -13,18 +13,20 @@ public class HelloController {
 	@GetMapping("/hello")
 	public String index() {
 		return "<html><body>" +
-				"<table>" +
-				"<tr>" +
-				"<td>1A</td>" +
-				"<td>1B</td>" +
-				"<td>1C</td>" +
-				"</tr>" +
-				"<tr>" +
-				"<td>2A</td>" +
-				"<td>2B</td>" +
-				"<td>2C</td>" +
-				"</tr>" +
-				"</table></body></html>";
+				"<h1>My first table!</h1>" +
+				"<table border='1px'>" +
+				" <tr>" +
+				"  <td>1A</td>" +
+				"  <td>1B</td>" +
+				"  <td>1C</td>" +
+				" </tr>" +
+				" <tr>" +
+				"  <td>2A</td>" +
+				"  <td>2B</td>" +
+				"  <td>2C</td>" +
+				" </tr>" +
+				"</table>" +
+				"</body></html>";
 	}
 
 	@PostMapping("/process_form")
