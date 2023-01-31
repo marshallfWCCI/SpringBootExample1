@@ -19,14 +19,14 @@ public class HelloController {
 				"  <td>1A</td>" +
 				"  <td>1B</td>" +
 				"  <td>1C</td>" +
-				" </tr>" +
-				" <tr>" +
+				" </tr>" + // done with first row
+				" <tr>" + // starting second row
 				"  <td>2A</td>" +
 				"  <td>2B</td>" +
 				"  <td>2C</td>" +
-				" </tr>" +
-				"</table>" +
-				"</body></html>";
+				" </tr>" + // done with second row
+				"</table>" + // done with table
+				"</body></html>"; // done with page
 	}
 
 	@PostMapping("/process_form")
