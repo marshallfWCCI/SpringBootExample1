@@ -9,6 +9,10 @@ public class HelloController {
 
 	Logger logger = LoggerFactory.getLogger(HelloController.class);
 
+	@GetMapping("/greetings")
+	public String greetings() {
+		return "Greetings from Spring Boot!";
+	}
 
 	@GetMapping("/hello")
 	public String index() {
