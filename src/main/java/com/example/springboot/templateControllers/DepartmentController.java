@@ -1,5 +1,6 @@
-package com.example.springboot.controllers;
+package com.example.springboot.templateControllers;
 
+import com.example.springboot.entities.Department;
 import com.example.springboot.repositories.DepartmentRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +14,8 @@ public class DepartmentController {
         this.departmentRepository = departmentRepository;
     }
 
-    @GetMapping("/departments")
-    public String departments(Model model) {
+    @GetMapping("/departments.html")
+    public String departmentsHTML(Model model) {
         model.addAttribute("departments", departmentRepository.findAll());
         return "departments.html";
     }
