@@ -1,7 +1,10 @@
 package com.example.springboot;
 
 import java.util.Arrays;
+import java.util.Optional;
 
+import com.example.springboot.entities.Department;
+import com.example.springboot.repositories.DepartmentRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,17 +19,23 @@ public class Application {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+	public CommandLineRunner commandLineRunner(ApplicationContext ctx, DepartmentRepository departmentRepository) {
 		return (args) -> {
+			Optional<Department> perhapsMarketing = departmentRepository.findById("d001");
+			perhapsMarketing.ifPresentOrElse(
+					department -> System.out.println(department.toString()),
+					() -> System.out.println("Failed"));
 
-			System.out.println("Let's inspect the beans provided by Spring Boot:");
+			Department entity = new Department();
+			entity.setId("d001");
+			entity.setDeptName("Marketing");
+			departmentRepository.save(entity);
 
-			String[] beanNames = ctx.getBeanDefinitionNames();
-			Arrays.sort(beanNames);
-			for (String beanName : beanNames) {
-				System.out.println(beanName);
+			// departmentRepository.deleteById("d001");
+
+			for (Department dept : departmentRepository.findAll()) {
+				System.out.println(dept.toString());
 			}
-
 		};
 	}
 
