@@ -2,6 +2,7 @@ package com.example.springboot.restControllers;
 
 import com.example.springboot.entities.Department;
 import com.example.springboot.repositories.DepartmentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,7 @@ import java.util.Optional;
 public class DepartmentRestController {
     private final DepartmentRepository departmentRepository;
 
-    public DepartmentRestController(DepartmentRepository departmentRepository) {
+    public DepartmentRestController(@Autowired DepartmentRepository departmentRepository) {
         this.departmentRepository = departmentRepository;
     }
 
