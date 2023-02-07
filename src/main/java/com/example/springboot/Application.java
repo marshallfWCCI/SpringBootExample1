@@ -14,29 +14,17 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 
-	@Bean
-	public CommandLineRunner commandLineRunner(ApplicationContext ctx, DepartmentRepository departmentRepository) {
-		return (args) -> {
-			Optional<Department> perhapsMarketing = departmentRepository.findById("d001");
-			perhapsMarketing.ifPresentOrElse(
-					department -> System.out.println(department.toString()),
-					() -> System.out.println("Failed"));
-
-			Department entity = new Department();
-			entity.setId("d001");
-			entity.setDeptName("Marketing");
-			departmentRepository.save(entity);
-
-			// departmentRepository.deleteById("d001");
-
-			for (Department dept : departmentRepository.findAll()) {
-				System.out.println(dept.toString());
-			}
-		};
-	}
+    @Bean
+    public CommandLineRunner commandLineRunner(ApplicationContext ctx, DepartmentRepository departmentRepository) {
+        return (args) -> {
+            for (var arg : args) {
+                System.out.println("Arg is " + arg);
+            }
+        };
+    }
 
 }
